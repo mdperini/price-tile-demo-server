@@ -17,7 +17,7 @@ function tickPrice(currencyPair) {
   _server.subscription(topic);
  
   setInterval(() => {
-    let newRate = currencyPair.basePrice * (0.99995 + Math.random() * 0.0001); //oscillates 0.1%
+    let newRate = currencyPair.basePrice * (0.99995 + Math.random() * 0.001); //oscillates 0.1%
     let newTick = {
       symbol: currencyPair.symbol,
       priceType: 'SPOT',
@@ -31,7 +31,7 @@ function tickPrice(currencyPair) {
 
     currencyPair.lastTick = newTick;
     _server.publish(topic, newTick);
-  }, 2000 + 2000 * Math.random());
+  }, 1000 + 1000 * Math.random());
 }
 
 function init(server) {

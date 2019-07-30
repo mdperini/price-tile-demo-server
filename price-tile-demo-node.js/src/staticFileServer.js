@@ -10,7 +10,6 @@ function init(server) {
       }
     }
   });
-  let mike = 'hey';
   server.route({
     method: 'GET',
     path: '/',
