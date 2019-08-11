@@ -22,7 +22,7 @@ const start = async () => {
         relativeTo: Path.join(__dirname, '../client')
       },
       cors: {
-        origin: ['http://localhost:4200'],
+        origin: ['http://localhost:4200', 'http://localhost:3006'],
         additionalHeaders: ['cache-control', 'x-requested-with', 'userid']
       }
     }
