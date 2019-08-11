@@ -1,6 +1,8 @@
 'use strict';
 
 const Joi = require('@hapi/joi');
+const uuidv1 = require('uuid/v1');
+
 const currencyPairs = require('./data/currencyPairs');
 var _server;
 
@@ -41,7 +43,11 @@ function init(server) {
     path: '/currencypairs',
     handler: (request, h) => {
       console.log('currencypairs');
-      return currencyPairs;
+      return currencyPairs.map(ccyPair => {
+        ccyPair['uuidv1'] = uuidv1(); // ⇨ '45745c60-7b1a-11e8-9c9c-2d42b21b1a3e'
+        return ccyPair;
+      });
+      
     },
     options: {
       description: 'Get currency pairs',
