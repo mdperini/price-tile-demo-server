@@ -44,7 +44,7 @@ function init(server) {
     handler: (request, h) => {
       console.log('currencypairs');
       return currencyPairs.map(ccyPair => {
-        ccyPair['uuidv1'] = uuidv1(); // ⇨ '45745c60-7b1a-11e8-9c9c-2d42b21b1a3e'
+        ccyPair['key'] = uuidv1(); // ⇨ '45745c60-7b1a-11e8-9c9c-2d42b21b1a3e'
         return ccyPair;
       });
       

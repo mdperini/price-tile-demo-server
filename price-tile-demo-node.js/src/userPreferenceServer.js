@@ -1,4 +1,5 @@
 const Joi = require('@hapi/joi');
+const uuidv1 = require('uuid/v1');
 
 if (typeof localStorage === 'undefined' || localStorage === null) {
   var LocalStorage = require('node-localstorage').LocalStorage;
@@ -7,7 +8,7 @@ if (typeof localStorage === 'undefined' || localStorage === null) {
 
 function getUserPreference(userid) {
   let data = localStorage.getItem('preferences-' + userid);
-  return data ? JSON.parse(data) : [];
+   return data ? JSON.parse(data) : [];
 }
 
 function saveUserPreference(userid, userPreference) {
@@ -39,6 +40,8 @@ function init(server) {
     method: 'POST',
     path: '/preferences',
     handler: (request, h) => {
+      console.log(`userid ${request.headers.userid} payload ${request.payload}`); // ${JSON.stringify(transaction)} 
+
       saveUserPreference(request.headers.userid, request.payload);
       return h
         .response({

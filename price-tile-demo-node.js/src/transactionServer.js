@@ -12,7 +12,6 @@ function executeTransaction(userid, transaction, tick) {
     success: false
   };
 
-  let mike = 'hey';
   let rate = null;
 
   console.log('executeTransaction --------');
@@ -28,7 +27,9 @@ function executeTransaction(userid, transaction, tick) {
 
     if (transaction.side == 'SELL') {
       if (transaction.amount > tick.termLiquidity) {
-        response.message = 'Amount greater than current liquidity.';
+        response.message = `Amount greater than current liquidity. 
+          Amount ${transaction.amount}
+          Liquidity ${tick.termLiquidity}`;
       } else {
         rate = tick.termRate;
         tick.termLiquidity -= transaction.amount;
@@ -49,7 +50,9 @@ function executeTransaction(userid, transaction, tick) {
       response.message = 'Transaction not supported.';
     }
   }
- 
+  
+  console.log(response);
+
   return response;
 }
 
@@ -89,7 +92,8 @@ function init(server) {
     method: 'POST',
     path: '/transactions',
     handler: (request, h) => {
-      console.log('executeTransaction', JSON.stringify(request.payload));
+      console.log(`userid ${request.headers.userid}  {request.payload.symbol}
+      executeTransaction ${JSON.stringify(request.payload)}`);
 
       let ccy = currencyPairsServer.getCurrencyPair(request.payload.symbol);
       if (ccy) {
