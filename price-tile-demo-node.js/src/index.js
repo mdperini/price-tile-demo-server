@@ -15,7 +15,7 @@ const userPreferenceServer = require('./userPreferenceServer');
 
 const start = async () => {
   const server = Hapi.server({
-    port: 3333,
+    port: 3383,
     host: 'localhost',
     routes: {
       files: {
