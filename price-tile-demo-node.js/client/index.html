@@ -8,6 +8,10 @@
 
 <body>
   <h1>welcome</h1>
+  <div>
+    <button id='btn'>Get Data</button>
+	  <div id="app"></div>
+  </div>
   <script>
     const payloads = [{ symbol: 'EURUSD', priceType: 'SPOT', side: 'BUY', amount: 1000 },
     { symbol: 'EURUSD', priceType: 'SPOT', side: 'BUY', amount: 1000 },
@@ -53,7 +57,7 @@
   </script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const client = new nes.Client('ws://localhost:3333');
+      const client = new nes.Client('ws://localhost:3383');
       const start = async () => {
         await client.connect();
         const handler = (update, flags) => {
@@ -68,5 +72,88 @@
       start();
     });
   </script>
+  <!-- sandbox callbacks , promises, aync, await -->
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js">
+  </script>
+  <script>
+  $(document).ready(function(){
+    $("button").click(function(){
+      function add (x, y) {
+        return x + y
+      }
+
+      console.log(add(2,3)) // 5 - Press the button, run the machine.
+
+      // function add (x, y) {
+      //   return x + y
+      // }
+
+      // function addFive (x, addReference) {
+      //   return addReference(x, 5) // 15 - Press the button, run the machine.
+      // }
+
+      // console.log(addFive(10, add)); // 15
+
+      // function add (x,y) {
+      //   return x + y
+      // }
+
+      // function higherOrderFunction (x, callback) {
+      //   return callback(x, 5)
+      // }
+
+      // console.log(higherOrderFunction(10, add))
+
+      const promise = new Promise()
+      function onSuccess () {
+        console.log('Success!')
+      }
+
+      function onError () {
+        console.log('💩')
+      }
+
+      const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve()
+        }, 2000)
+      })
+
+      console.log(promise)
+
+      promise.then(onSuccess)
+      promise.catch(onError)
+
+    })
+  });
+  </script>
+  <script>
+//   function getUser(id, onSuccess, onFailure) {
+//   $.getJSON({
+//     url: `https://api.github.com/users/${id}`,
+//     success: onSuccess,
+//     error: onFailure
+//   })
+// }
+
+// function getWeather(user, onSuccess, onFailure) {
+//   $.getJSON({
+//     url: getLocationURL(user.location.split(',')),
+//     success: onSuccess,
+//     error: onFailure,
+//   })
+// }
+
+// $("#btn").on("click", () => {
+//   getUser("tylermcginnis", (user) => {
+//     getWeather(user, (weather) => {
+//       updateUI({
+//         user,
+//         weather: weather.query.results
+//       })
+//     }, showError)
+//   }, showError)
+// })
+</script>
 </body>
 </html>

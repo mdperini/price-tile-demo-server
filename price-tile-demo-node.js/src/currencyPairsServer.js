@@ -33,7 +33,7 @@ function tickPrice(currencyPair) {
 
     currencyPair.lastTick = newTick;
     _server.publish(topic, newTick);
-  }, 1000 + 1000 * Math.random());
+  }, 3000 + 3000 * Math.random());
 }
 
 function init(server) {
