@@ -1,0 +1,38 @@
+[
+    {  
+      "symbol": "USDCNY",  
+      "bid": "USD",  
+      "term": "CNY",  
+      "totalFractionalDigits": 5,  
+      "pipStartIdx": 4,  
+      "pipLength": 2,  
+      "basePrice": 6.65880  
+    },
+    {  
+      "symbol": "USDCOP",  
+      "bid": "USD",  
+      "term": "COP",  
+      "totalFractionalDigits": 5,  
+      "pipStartIdx": 4,  
+      "pipLength": 2,  
+      "basePrice": 6.65880  
+    },
+    {  
+      "symbol": "USDCLP",  
+      "bid": "USD",  
+      "term": "CLP",  
+      "totalFractionalDigits": 5,  
+      "pipStartIdx": 4,  
+      "pipLength": 2,  
+      "basePrice": 6.65880  
+    },
+    {  
+      "symbol": "USDKRW",  
+      "bid": "USD",  
+      "term": "KRW",  
+      "totalFractionalDigits": 5,  
+      "pipStartIdx": 4,  
+      "pipLength": 2,  
+      "basePrice": 6.65880  
+    }    
+  ]

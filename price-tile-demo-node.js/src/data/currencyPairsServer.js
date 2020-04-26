@@ -3,7 +3,7 @@
 const Joi = require('@hapi/joi');
 const uuidv1 = require('uuid/v1');
 
-const currencyPairs = require('./data/currencyPairs');
+const currencyPairs = require('./data/currencyPairsUSDNDFs');
 var _server;
 
 function initPriceStreams() {
@@ -28,7 +28,30 @@ function tickPrice(currencyPair) {
       bidLiquidity: 10000 + Math.floor(Math.random() * 100) * 1000,
       termRate: 1 / (newRate * 1.000001),
       termLiquidity: 10000 + Math.floor(Math.random() * 100) * 1000,
-      date: new Date().toISOString()
+      date: new Date().toISOString(),
+      rung = [ {
+        nearTenor: 'SP+1',
+        nearTenorDate: new Date(2020,0,27).toISOString(),
+        bidPoints: 0,
+        askPoints: 0,
+        bidLiquidity: 0,
+        askLiquidity: 0,
+        bidAllInPoints: 0,
+        askAllInPoints: 0,
+        farTenor: '1W',
+        farTenorDate: new Date(2020,1,2).toISOString(), 
+      },{
+        nearTenor: 'SP+1',
+        nearTenorDate: new Date(2020,0,27).toISOString(),
+        bidPoints: 0,
+        askPoints: 0,
+        bidLiquidity: 1000000,
+        askLiquidity: 1000000,
+        bidAllInPoints: 0,
+        askAllInPoints: 0,
+        farTenor: '1W',
+        farTenorDate: new Date(2020,1,2).toISOString(), 
+      }]
     };
 
     currencyPair.lastTick = newTick;
