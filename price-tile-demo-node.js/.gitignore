@@ -3,6 +3,11 @@ build
 app/build
 
 #other
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
 .DS_Store
 node_modules
 npm-debug.log
