@@ -32,7 +32,7 @@ function tickPrice(currencyPair) {
       rungs: [ {
         nearTenor: 'SP+1',
         nearTenorDate: new Date(2020,0,29).toISOString(),
-        nearTenorFixingDate: new Date(2020,0,27).toISOString(),
+        nearTenorFixingDate: null,
         bidPoints: 0,
         askPoints: 0,
         bidLiquidity: 0,
@@ -41,7 +41,7 @@ function tickPrice(currencyPair) {
         askAllInPoints: 0,
         farTenor: '1W',
         farTenorDate: new Date(2020,1,4).toISOString(), 
-        farTenorFixingDate: new Date(2020,1,2).toISOString(), 
+        farTenorFixingDate: null, 
       },
       {
         nearTenor: '1W',
