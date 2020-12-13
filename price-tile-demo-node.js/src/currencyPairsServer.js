@@ -25,15 +25,15 @@ function tickPrice(currencyPair) {
       priceType: 'SPOT',
       baseMidRate: newRate,
       bidRate: newRate * 1.000001,
-      bidLiquidity: 10000 + Math.floor(Math.random() * 100) * 1000,
+      bidLiquidity: 1000000 + Math.floor(Math.random() * 100) * 1000,
       termRate: 1 / (newRate * 1.000001),
-      termLiquidity: 10000 + Math.floor(Math.random() * 100) * 1000,
+      termLiquidity: 1000000 + Math.floor(Math.random() * 100) * 1000,
       date: new Date().toISOString()
     };
 
     currencyPair.lastTick = newTick;
     _server.publish(topic, newTick);
-  }, 1000 + 1000 * Math.random());
+  }, 2000 + 2000 * Math.random());
 }
 
 function init(server) {
