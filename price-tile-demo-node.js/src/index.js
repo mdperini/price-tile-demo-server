@@ -8,8 +8,9 @@ const HapiSwagger = require('hapi-swagger');
 const Path = require('path');
 const Pack = require('../package')
 
-const staticFileServer = require('./staticFileServer');
+const accountProviderServer = require('./accountProviderServer');
 const currencyPairsServer = require('./currencyPairsServer');
+const staticFileServer = require('./staticFileServer');
 const transactionServer = require('./transactionServer');
 const userPreferenceServer = require('./userPreferenceServer');
 
@@ -51,7 +52,7 @@ const start = async () => {
  
   const swaggerOptions = {
     info: {
-      title: 'Demo Pricing Server - API Documentation',
+      title: 'Sample Pricing Server - API Documentation',
       version: Pack.version
     }
   };
@@ -67,6 +68,7 @@ const start = async () => {
  
   await server.register(Nes);
   staticFileServer.init(server);
+  accountProviderServer.init(server);
   currencyPairsServer.init(server);
   transactionServer.init(server);
   userPreferenceServer.init(server);

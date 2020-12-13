@@ -40,7 +40,7 @@ function init(server) {
     method: 'POST',
     path: '/preferences',
     handler: (request, h) => {
-      console.log(`userid ${request.headers.userid} payload ${request.payload}`); // ${JSON.stringify(transaction)} 
+      console.log(`userid ${request.headers.userid} payload ${JSON.stringify(request.payload)}`); // ${JSON.stringify(transaction)} 
 
       saveUserPreference(request.headers.userid, request.payload);
       return h
