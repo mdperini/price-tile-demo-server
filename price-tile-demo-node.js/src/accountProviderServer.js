@@ -7,10 +7,11 @@ const accounts = require('./data/accounts');
 var _server;
 
 function getAccount(accountId) {
-    return accounts.find((a) => a.accountId.toLowerCase() === accountId.toLowerCase());        
+    return accounts.find((a) => a.id.toLowerCase() === accountId.toLowerCase());        
 }
 
 function init(server) {
+    console.log('>>> accounts server');
     _server = server;
     server.route({
         method: 'GET',

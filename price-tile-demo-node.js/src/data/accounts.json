@@ -1,73 +1,73 @@
 [
     {  
-        "accountName": "Account 1",  
-        "accountId": "Account 1 Id",  
+        "name": "Account 1",  
+        "id": "Account 1 Id",  
         "basenumber": 800002001,  
         "vehicle": "Account 1 Id"
     },
     {  
-        "accountName": "Account 2",  
-        "accountId": "Account 2 Id",  
+        "name": "Account 2",  
+        "id": "Account 2 Id",  
         "basenumber": 800002002,  
         "vehicle": "Account 2 Id"
     },
     {  
-        "accountName": "Account 3",  
-        "accountId": "Account 3 Id",  
+        "name": "Account 3",  
+        "id": "Account 3 Id",  
         "basenumber": 800002003,  
         "vehicle": "Account 3 Id"
     },
     {  
-        "accountName": "Account 4",  
-        "accountId": "Account 4 Id",  
+        "name": "Account 4",  
+        "id": "Account 4 Id",  
         "basenumber": 800002004,  
         "vehicle": "Account 4 Id"
     },
     {  
-        "accountName": "Account 5",  
-        "accountId": "Account 5 Id",  
+        "name": "Account 5",  
+        "id": "Account 5 Id",  
         "basenumber": 800002005,  
         "vehicle": "Account 5 Id"
     },
     {  
-        "accountName": "Account 6",  
-        "accountId": "Account 6 Id",  
+        "name": "Account 6",  
+        "id": "Account 6 Id",  
         "basenumber": 800002006,  
         "vehicle": "Account 6 Id"
     },
     {  
-        "accountName": "Account 7",  
-        "accountId": "Account 7 Id",  
+        "name": "Account 7",  
+        "id": "Account 7 Id",  
         "basenumber": 800002007,  
         "vehicle": "Account 7 Id"
     },
     {  
-        "accountName": "Account 8",  
-        "accountId": "Account 8 Id",  
+        "name": "Account 8",  
+        "id": "Account 8 Id",  
         "basenumber": 800002008,  
         "vehicle": "Account 8 Id"
     },
     {  
-        "accountName": "Account 9",  
-        "accountId": "Account 9 Id",  
+        "name": "Account 9",  
+        "id": "Account 9 Id",  
         "basenumber": 800002009,  
         "vehicle": "Account 9 Id"
     },
     {  
-        "accountName": "Account 10",  
-        "accountId": "Account 10 Id",  
+        "name": "Account 10",  
+        "id": "Account 10 Id",  
         "basenumber": 8000020010,  
         "vehicle": "Account 10 Id"
     },
     {  
-        "accountName": "Account 11",  
-        "accountId": "Account 11 Id",  
+        "name": "Account 11",  
+        "id": "Account 11 Id",  
         "basenumber": 8000020011,  
         "vehicle": "Account 11 Id"
     },
     {  
-        "accountName": "Account 12",  
-        "accountId": "Account 12 Id",  
+        "name": "Account 12",  
+        "id": "Account 12 Id",  
         "basenumber": 8000020012,  
         "vehicle": "Account 12 Id"
     }    
