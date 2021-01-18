@@ -37,6 +37,7 @@ function tickPrice(currencyPair) {
 }
 
 function init(server) {
+  console.log(`>>> currency pair provider server init`);
   _server = server;
   server.route({
     method: 'GET',

@@ -3,28 +3,28 @@
 const Joi = require('@hapi/joi');
 const uuidv1 = require('uuid/v1');
 
-const accounts = require('./data/accounts');
+const orderTypes = require('./data/orderTypes');
 var _server;
 
-function getAccount(accountId) {
-    return accounts.find((a) => a.id.toLowerCase() === accountId.toLowerCase());        
+function getOrderType(id) {
+    return orderTypes.find((a) => a.id.toLowerCase() === id.toLowerCase());        
 }
 
 function init(server) {
-    console.log('>>> account provider server init');
+    console.log('>>> orderType provider server init');
     _server = server;
     server.route({
         method: 'GET',
-        path: '/accounts',
+        path: '/orderTypes',
         handler: (request, h) => {
-            console.log('>>> accounts request');
-            return accounts.map( account => {
-                account['key'] = uuidv1();
-                return account;
+            console.log('>>> orderTypes request');
+            return orderTypes.map( orderType => {
+                orderType['key'] = uuidv1();
+                return orderType;
             });
         },
         options: {
-            description: 'Get accounts',
+            description: 'Get orderTypes',
             tags: ['api'],
             validate: {
                 headers: {
@@ -34,35 +34,34 @@ function init(server) {
                     allowUnknown: true
                 }
             }
-
         }
     });
 
     server.route({
         method: 'GET',
-        path: '/accounts/{account}',
+        path: '/orderTypes/{orderType}',
         handler: (request, h) => {
-            let account = getAccount(request.params.account);
-            if (account) {
-                return account
+            let orderType = getOrderType(request.params.orderType);
+            if (orderType) {
+                return orderType
             } else {
                 return h
                     .response({
                         success: false,
-                        message: `Account ${request.params.account} was not found!`
+                        message: `Currency ${request.params.orderType} was not found!`
                     })
                     .code(404)
             }
         }, 
         options: {
-            description: 'Get single account',
+            description: 'Get single orderType',
             tags: ['api'],
             validate: {
                 headers: {
                     userid: Joi.string().required()
                 },
                 params: {
-                    account: Joi.string().required()
+                    orderType: Joi.string().required()
                 },
                 options: {
                     allowUnknown: true
@@ -74,5 +73,5 @@ function init(server) {
 
 module.exports = {
     init: init,
-    getAccount: getAccount
+    getOrderType: getOrderType
 }

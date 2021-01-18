@@ -1,0 +1,36 @@
+[
+    {  
+        "orderType": "Limit",
+        "id": "1"
+    },
+    {  
+        "orderType": "Market",
+        "id": "2"
+    },
+    {  
+        "orderType": "Call",
+        "id": "3"
+    },
+    {  
+       "orderType": "ESPTrade",
+       "id": "4"
+    },
+    {  
+       "orderType": "Benchmark",
+       "id": "5"
+    },
+    {  
+       "orderType": "Algo",
+       "id": "6"
+    },
+    {  
+        "orderType": "OCO",
+        "id": "7"
+    },
+    {  
+        "orderType": "Loop",
+        "id": "8"
+    }
+
+    
+  ]

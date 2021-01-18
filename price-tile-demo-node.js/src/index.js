@@ -9,7 +9,9 @@ const Path = require('path');
 const Pack = require('../package')
 
 const accountProviderServer = require('./accountProviderServer');
-const currencyPairsServer = require('./currencyPairsServer');
+const currencyProviderServer = require('./currencyProviderServer');
+const currencyPairProviderServer = require('./currencyPairProviderServer');
+const orderTypeProviderServer = require('./orderTypeProviderServer');
 const staticFileServer = require('./staticFileServer');
 const transactionServer = require('./transactionServer');
 const userPreferenceServer = require('./userPreferenceServer');
@@ -69,7 +71,9 @@ const start = async () => {
   await server.register(Nes);
   staticFileServer.init(server);
   accountProviderServer.init(server);
-  currencyPairsServer.init(server);
+  currencyPairProviderServer.init(server);
+  currencyProviderServer.init(server);
+  orderTypeProviderServer.init(server); 
   transactionServer.init(server);
   userPreferenceServer.init(server);
 

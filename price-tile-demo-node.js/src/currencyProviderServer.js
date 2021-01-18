@@ -3,28 +3,28 @@
 const Joi = require('@hapi/joi');
 const uuidv1 = require('uuid/v1');
 
-const accounts = require('./data/accounts');
+const currencies = require('./data/currencies');
 var _server;
 
-function getAccount(accountId) {
-    return accounts.find((a) => a.id.toLowerCase() === accountId.toLowerCase());        
+function getCurrency(symbol) {
+    return currencies.find((a) => a.symbol.toLowerCase() === symbol.toLowerCase());        
 }
 
 function init(server) {
-    console.log('>>> account provider server init');
+    console.log('>>> currency provider server init');
     _server = server;
     server.route({
         method: 'GET',
-        path: '/accounts',
+        path: '/currencies',
         handler: (request, h) => {
-            console.log('>>> accounts request');
-            return accounts.map( account => {
-                account['key'] = uuidv1();
-                return account;
+            console.log('>>> currencies request');
+            return currencies.map( currency => {
+                currency['key'] = uuidv1();
+                return currency;
             });
         },
         options: {
-            description: 'Get accounts',
+            description: 'Get currencies',
             tags: ['api'],
             validate: {
                 headers: {
@@ -40,29 +40,29 @@ function init(server) {
 
     server.route({
         method: 'GET',
-        path: '/accounts/{account}',
+        path: '/currencies/{currency}',
         handler: (request, h) => {
-            let account = getAccount(request.params.account);
-            if (account) {
-                return account
+            let currency = getCurrency(request.params.currency);
+            if (currency) {
+                return currency
             } else {
                 return h
                     .response({
                         success: false,
-                        message: `Account ${request.params.account} was not found!`
+                        message: `Currency ${request.params.currency} was not found!`
                     })
                     .code(404)
             }
         }, 
         options: {
-            description: 'Get single account',
+            description: 'Get single currency',
             tags: ['api'],
             validate: {
                 headers: {
                     userid: Joi.string().required()
                 },
                 params: {
-                    account: Joi.string().required()
+                    currency: Joi.string().required()
                 },
                 options: {
                     allowUnknown: true
@@ -74,5 +74,5 @@ function init(server) {
 
 module.exports = {
     init: init,
-    getAccount: getAccount
+    getCurrency: getCurrency
 }

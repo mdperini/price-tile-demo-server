@@ -1,6 +1,6 @@
 const Joi = require('@hapi/joi');
 
-const currencyPairsServer = require('./currencyPairsServer');
+const currencyPairProviderServer = require('./currencyPairProviderServer');
 
 if (typeof localStorage === 'undefined' || localStorage === null) {
   var LocalStorage = require('node-localstorage').LocalStorage;
@@ -95,7 +95,7 @@ function init(server) {
       console.log(`userid ${request.headers.userid}  {request.payload.symbol}
       executeTransaction ${JSON.stringify(request.payload)}`);
 
-      let ccy = currencyPairsServer.getCurrencyPair(request.payload.symbol);
+      let ccy = currencyPairProviderServer.getCurrencyPair(request.payload.symbol);
       if (ccy) {
         if (ccy.lastTick) {
           let execution = executeTransaction(request.headers.userid, request.payload, ccy.lastTick);

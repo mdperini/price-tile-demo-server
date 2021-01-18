@@ -38,7 +38,7 @@
     {  
       "symbol": "USDMXN",  
       "bid": "USD",  
-      "term": "CAD",  
+      "term": "MXN",  
       "totalFractionalDigits": 5,  
       "pipStartIdx": 3,  
       "pipLength": 2,  
