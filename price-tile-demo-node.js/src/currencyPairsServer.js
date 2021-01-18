@@ -42,7 +42,7 @@ function init(server) {
     method: 'GET',
     path: '/currencypairs',
     handler: (request, h) => {
-      console.log('currencypairs');
+      console.log('>>> currencypairs request');
       return currencyPairs.map(ccyPair => {
         ccyPair['key'] = uuidv1(); // ⇨ '45745c60-7b1a-11e8-9c9c-2d42b21b1a3e'
         return ccyPair;
@@ -74,13 +74,13 @@ function init(server) {
         return h
           .response({
             success: false,
-            message: `Symbol ${request.params.symbol} not found`
+            message: `Symbol ${request.params.symbol} was not found!`
           })
           .code(404);
       }
     },
     options: {
-      description: 'Get singe currency pair info',
+      description: 'Get single currency pair info',
       tags: ['api'],
       validate: {
         headers: {
