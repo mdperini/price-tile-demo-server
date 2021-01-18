@@ -11,7 +11,7 @@ function getAccount(accountId) {
 }
 
 function init(server) {
-    console.log('>>> accounts server');
+    console.log('>>> accounts server init');
     _server = server;
     server.route({
         method: 'GET',
