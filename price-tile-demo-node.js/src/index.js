@@ -15,6 +15,7 @@ const orderTypeProviderServer = require('./orderTypeProviderServer');
 const staticFileServer = require('./staticFileServer');
 const transactionServer = require('./transactionServer');
 const userPreferenceServer = require('./userPreferenceServer');
+const userTradingSalesPreferenceServer = require('./userTradingSalesPreferenceServer');
 
 const start = async () => {
   const server = Hapi.server({
@@ -76,6 +77,7 @@ const start = async () => {
   orderTypeProviderServer.init(server); 
   transactionServer.init(server);
   userPreferenceServer.init(server);
+  userTradingSalesPreferenceServer.init(server);
 
   await server.start();
   console.log('Server running at:', server.info.uri);

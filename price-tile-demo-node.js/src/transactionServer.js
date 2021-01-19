@@ -68,6 +68,7 @@ function saveTransaction(userid, transaction) {
 }
 
 function init(server) {
+  console.log('>>> transaction server server init');
   server.route({
     method: 'GET',
     path: '/transactions',

@@ -3,28 +3,28 @@ const uuidv1 = require('uuid/v1');
 
 if (typeof localStorage === 'undefined' || localStorage === null) {
   var LocalStorage = require('node-localstorage').LocalStorage;
-  localStorage = new LocalStorage('./.user-data');
+  localStorage = new LocalStorage('./.user-trading-sales-data');
 }
 
-function getUserPreference(userid) {
+function getUserTradingSalesPreference(userid) {
   let data = localStorage.getItem('preferences-' + userid);
    return data ? JSON.parse(data) : [];
 }
 
-function saveUserPreference(userid, userPreference) {
-  localStorage.setItem('preferences-' + userid, JSON.stringify(userPreference));
+function saveUserTradingSalesPreference(userid, userTradingSalesPreference) {
+  localStorage.setItem('preferences-' + userid, JSON.stringify(userTradingSalesPreference));
 }
 
 function init(server) {
-  console.log('>>> user preference server server init');
+  console.log('>>> user trading and sales preference server server init');
   server.route({
     method: 'GET',
-    path: '/preferences',
+    path: '/tradingSalesPreferences',
     handler: (request, h) => {
-      return getUserPreference(request.headers.userid);
+      return getUserTradingSalesPreference(request.headers.userid);
     },
     options: {
-      description: 'Get user preferences',
+      description: 'Get user trading and sales preferences',
       tags: ['api'],
       validate: {
         headers: {
@@ -39,11 +39,11 @@ function init(server) {
 
   server.route({
     method: 'POST',
-    path: '/preferences',
+    path: '/tradingSalesPreferences',
     handler: (request, h) => {
       console.log(`userid ${request.headers.userid} payload ${JSON.stringify(request.payload)}`); // ${JSON.stringify(transaction)} 
 
-      saveUserPreference(request.headers.userid, request.payload);
+      saveUserTradingSalesPreference(request.headers.userid, request.payload);
       return h
         .response({
           success: true,
@@ -52,7 +52,7 @@ function init(server) {
         .code(200);
     },
     options: {
-      description: 'Save user preferences',
+      description: 'Save user trading and sales preferences',
       tags: ['api'],
       validate: {
         headers: {
